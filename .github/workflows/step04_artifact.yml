@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Create output.txt
+      id: output
       run: |
         echo "artifact output" > output.txt
     - name: Upload output.txt
