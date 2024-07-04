@@ -21,6 +21,7 @@ jobs:
         cache: maven
     
     - uses: actions/checkout@v2
+    - run: mkdir ./src/main/resources
     - run: touch ./src/main/resources/application.properties
     - run: echo "${{secrets.APPLICATION_PROPERTIES}}" > ./src/main/resources/application.properties
     - uses: actions/upload-artifact@v2
