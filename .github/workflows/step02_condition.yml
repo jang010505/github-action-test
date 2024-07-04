@@ -1,8 +1,8 @@
-name: step02_condition.yml
+name: step02_condition
 on: workflow_dispatch
 jobs:
   build:
-    if: github.respository == 'jang010505/github-action-test'
+    if: github.repository == 'jang010505/github-action-test'
     runs-on: ubuntu-latest
     steps:
     - name: Print Result
