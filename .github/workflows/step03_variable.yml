@@ -1,0 +1,20 @@
+name: step03_variable.yml
+on: workflow_dispatch
+env:
+  name: Devops
+
+jobs:
+  build_1:
+    runs-on: ubuntu-latest
+    env: 
+      name: Infra
+    steps:
+    - name: Build_1 Step
+      run: |
+        echo "Run Build_1 Step1 : $name"
+  build_2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build_2 Step
+      run: |
+        echo "Run Build_2 Step1 : $name"
