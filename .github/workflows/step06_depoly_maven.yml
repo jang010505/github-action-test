@@ -21,10 +21,10 @@ jobs:
         cache: maven
         
     - name: Make File of application.properties
-    - uses: actions/checkout@v2
-    - run: |
+      run: |
         touch ./src/main/resources/application.properties
         echo "${{ secrets.APPLICATION_PROPERTIES }}" > ./src/main/resources/application.properties
+    - uses: actions/checkout@v2
     - uses: action/upload-artifact@v2
       with: 
         name: application.properties
