@@ -38,7 +38,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
     - name: Docker Hub Push Image
-      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/github-action-backend
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/github-action-backend:latest
   
   deploy:
     needs: build
@@ -55,6 +55,6 @@ jobs:
           script: |
             docker stop github-action-backend
             docker rm github-action-backend
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/github-action-backend
-            docker run -d -p 8080:8080 --network=my-network --name github-action-backend ${{ secrets.DOCKERHUB_USERNAME }}/github-action-backend
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/github-action-backend:latest
+            docker run -d -p 8080:8080 --network=my-network --name github-action-backend ${{ secrets.DOCKERHUB_USERNAME }}/github-action-backend:latest
             docker system prune -f
