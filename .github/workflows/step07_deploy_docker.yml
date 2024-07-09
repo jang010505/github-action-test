@@ -55,6 +55,6 @@ jobs:
           script: |
             docker stop github-action-backend
             docker rm github-action-backend
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/github-action-backend:latest
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/github-action-backend
             docker run -d -p 8080:8080 --network=my-network --name github-action-backend ${{ secrets.DOCKERHUB_USERNAME }}/github-action-backend
             docker system prune -f
