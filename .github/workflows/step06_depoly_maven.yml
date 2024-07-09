@@ -22,8 +22,9 @@ jobs:
         
     - name: Make File of application.properties
     - uses: actions/checkout@v2
-    - run: touch ./src/main/resources/application.properties
-    - run: echo "${{ secrets.APPLICATION_PROPERTIES }}" > ./src/main/resources/application.properties
+    - run: |
+        touch ./src/main/resources/application.properties
+        echo "${{ secrets.APPLICATION_PROPERTIES }}" > ./src/main/resources/application.properties
     - uses: action/upload-artifact@v2
       with: 
         name: application.properties
